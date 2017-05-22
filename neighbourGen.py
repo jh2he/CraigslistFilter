@@ -1,6 +1,6 @@
 import shapefile
 
-class region(object):
+class Region(object):
     def __init__(self):
         self.neighbourhoods = {}
         self.SHAPEFILE="TorNeighbour.shp"
