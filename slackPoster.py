@@ -6,12 +6,12 @@ import sqlListing
 class SlackPoster(object):
     def __init__(self):
         self.dataBase = sqlListing.SqlListingHelper()
-        self.prepareArgs("slackauth.json")
+        self.prepareArgs("auth.json")
 
     def prepareArgs(self, jsonfile):
         with open(jsonfile) as data_file:
             slackdata = json.load(data_file)
-        self.SLACK_TOKEN = slackdata["token"]
+        self.SLACK_TOKEN = slackdata["slack_token"]
         self.SLACK_CHANNEL = "#scraped-listings"
     
     def performPost(self, results):
