@@ -35,11 +35,15 @@ class SqlListingHelper(object):
         self.regexNonDec=re.compile(r'[^\d.]+')
     
     def isDuplicate(self, clid):
-        listing = self.session.query(SqlListingHelper.Listing).filter_by(cl_id=clid).first()
-        if listing is None:
+        try:
+            listing = self.session.query(SqlListingHelper.Listing).filter_by(cl_id=clid).first()
+            if listing is None:
+                return False
+            else:
+                return True
+        except Exception as e:
+            print(e)
             return False
-        else:
-            return True
     
     def addListing(self, result):
         lat = 0

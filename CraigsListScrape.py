@@ -1,15 +1,11 @@
 from craigslist import CraigslistHousing
-import postToSlack
+import slackPoster
 
-class ClScraper(object):
+class craigsListScraper(object):
     def __init__(self):
         self.cl = CraigslistHousing(site='toronto', area='tor', category='apa', filters={'max_price': 2000, 'min_price': 1000})
-        self.poster = postToSlack.SlackPoster()
+        self.poster = slackPoster.SlackPoster()
     
-    def performScrape(self)
+    def performScrape(self):
         results = self.cl.get_results(sort_by='newest', geotagged=True, limit=5)
-
-    
-        
-
-
+        self.poster.performPost(results)

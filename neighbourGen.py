@@ -26,6 +26,9 @@ class Region(object):
             
     def findArea(self, geotag):
         for a, coord in self.neighbourhoods.items():
-            if (self.inAreaApprox(geotag, coord)):
-                return a
+            try:
+                if (self.inAreaApprox(geotag, coord)):
+                    return a
+            except:
+                return "none"
         return "none"
