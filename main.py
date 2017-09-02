@@ -2,10 +2,9 @@ import craigsListScrape
 import time
 
 def main():
-    print("press the Enter key to start...")
-    input()
+    input("press the Enter key to start...")
     looper()
-    
+
 def looper():
     scraper = craigsListScrape.craigsListScraper()
     while True:
